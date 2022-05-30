@@ -1,0 +1,21 @@
+<head>
+        <title> GUARDIAN </title>
+        <link rel="icon" type="" href="static/favicon.ico" type="image/icon">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </head>
+{% load bootstrap4 %}
+
+{% block body_block %}
+<div class="container">
+    <b><h1 class="text-center"> WELCOME USER</h1></b>
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" value="Sign In" class="btn btn-success btn-block">
+    </form>
+</div>
+
+{% endblock body_block %}

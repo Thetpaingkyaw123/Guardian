@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="container">
+    <div>
+        <div>
+            <u><h2> Product Details </h2></u>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item"><b>Name            :    </b> {{ product.name }} </li>
+                <li class="list-group-item"><b>Model           :    </b> {{ product.model }} </li>
+                <li class="list-group-item"><b>Serial_Number   :    </b> {{ product.serialnumber }} </li>
+                <li class="list-group-item"><b>Quantity        :    </b> {{ product.quantity }} </li>
+                <li class="list-group-item"><b>Invertory_Date  :    </b> {{ product.invertorydate }} </li>
+                <li class="list-group-item"><b>Warranty_Date   :    </b> {{ product.warrantydate }} </li>
+                <li class="list-group-item"><b>Expired_Date    :    </b> {{ product.expireddate }} </li>
+                <li class="list-group-item"><b>Amount          :    </b> {{ product.amount }} </li>
+                <li class="list-group-item"><b>Remark          :    </b> {{ product.remark }} </li>
+            </ul>              
+        </div><br>
+        <a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+
+    </div>    
+</div>
+{% endblock %}

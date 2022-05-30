@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="container">
+    <div>
+        <div>
+            <u><h2> Invoice Details </h2></u>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item"><b>Name             : </b> {{ invoice.name }} </li>
+                <li class="list-group-item"><b>Invoice_Number   : </b> {{ invoice.invoiceno }} </li>
+                <li class="list-group-item"><b>Date             : </b> {{ invoice.date }} </li>
+                <li class="list-group-item"><b>Customer_Phone   : </b> {{ invoice.customerph }} </li>
+                <li class="list-group-item"><b>Item_Description : </b> {{ invoice.itemdescription }} </li>
+                <li class="list-group-item"><b>Quantity         : </b> {{ invoice.quantity }} </li>
+                <li class="list-group-item"><b>Prices           : </b> {{ invoice.prices }} </li>
+                <li class="list-group-item"><b>Amount           : </b> {{ invoice.amount }} </li>
+                <li class="list-group-item"><b>Discount         : </b> {{ invoice.discount }} </li>
+                <li class="list-group-item"><b>Total            : </b> {{ invoice.total }} </li>
+            </ul>              
+        </div><br>
+        <a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+    </div>    
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="container">
+    <div>
+        <div>
+            <u><h2> Service Form Details </h2></u>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item"><b>Name             :  </b> {{ service.name }} </li>
+                <li class="list-group-item"><b>Address          :  </b> {{ service.address }} </li>
+                <li class="list-group-item"><b>Phone_Number     :  </b> {{ service.phonenumber }} </li>
+                <li class="list-group-item"><b>Department       :  </b> {{ service.department }} </li>
+                <li class="list-group-item"><b>Number_Of_PC     :  </b> {{ service.numberofpc }} </li>
+                <li class="list-group-item"><b>Approval_Person  :  </b> {{ service.approvalperson }} </li>
+                <li class="list-group-item"><b>Technician       :  </b> {{ service.technician }} </li>
+                <li class="list-group-item"><b>Servicing_Date   :  </b> {{ service.servicingdate }} </li>
+                <li class="list-group-item"><b>Remark           :  </b> {{ service.remark }} </li>
+            </ul>              
+        </div><br>
+        <a href="javascript:history.back()" class="btn btn-dark"> Back </a>
+
+    </div>    
+</div>
+{% endblock %}

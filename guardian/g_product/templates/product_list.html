@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Product {% endblock %}
+
+{% block body_block %}
+
+<!DOCTYPE html>
+    <body>    
+        <img src="{% static 'sad.png' %}">
+        <img src="{% static 'ss.jpg' %}">
+        <img src="{% static 'happy.png' %}">   
+    </body>
+</html>
+
+    <div>
+        <h1><u><b>Our Product</b></u></h1>
+    </div>
+
+    <div style="float: right;">
+        <form method="GET" class="form-inline">
+            <div class="input-group">
+                <input type="search" name="search_query" placeholder="search" class="form-control" required>
+                <select name="search_type" style="margin-left:10px;" class="search-select" >
+                    <option value="name" selected>Name</option>
+                </select>
+                <div style="margin-left:10px;">
+                    <button type="submit" class="btn btn-danger" >Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+  <table class="table table-bordered table-hover">
+        <thead class="bg-danger">
+            <tr>
+                <th scope="col">Options</th>
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Model</th>
+                <th scope="col">Serial_Number</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Invertory_Date</th>
+                <th scope="col">Warranty_Date</th>
+                <th scope="col">Expired_Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in product_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'product_detail' pk=product.pk %}"><img src="{% static 'info_icon.png' %}" alt="Details" width="25" height="25"></a>
+                    {% if user.is_superuser %}
+                        <a href="{% url 'product_delete' pk=product.pk %}"><img src="{% static 'del_icon.png' %}" alt="Delete" width="25" height="25"></a>
+                        <a href="{% url 'product_update' pk=product.pk %}"><img src="{% static 'edit_icon.png' %}" alt="Edit" width="25" height="25"></a>
+                    {% endif %}
+                </td>
+                
+                <td>{{ forloop.counter }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.model }}</td>
+                <td>{{ product.serialnumber }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.invertorydate }}</td>
+                <td>{{ product.warrantydate }}</td>
+                <td>{{ product.expireddate }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.remark }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+ 
+
+</div><br><br>
+
+{% endblock body_block %}

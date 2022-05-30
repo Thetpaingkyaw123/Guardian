@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Invoice Form {% endblock %}
+
+{% block body_block %}
+<!DOCTYPE html>
+    <body>    
+        <img src="{% static 'a.jpg' %}">     
+    </body>
+</html>
+
+    <div>
+        <h1><u><b>Our Invoice Form</b></u></h1>
+    </div>
+
+    <div style="float: right;">
+        <form method="GET" class="form-inline">
+            <div class="input-group">
+                <input type="search" name="search_query" placeholder="search" class="form-control" required>
+                <select name="search_type" style="margin-left:10px;" class="search-select" >
+                    <option value="name" selected>Name</option>
+                </select>
+                <div style="margin-left:10px;">
+                    <button type="submit" class="btn btn-danger" >Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+  <table class="table table-bordered table-hover">
+        <thead class="bg-danger">
+            <tr>
+                <th scope="col">Options</th>
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Invoice_Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Customer_Phone</th>
+                <th scope="col">Item_Description</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Prices</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in invoice_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'invoice_detail' pk=invoice.pk %}"><img src="{% static 'info_icon.png' %}" alt="Details" width="25" height="25"></a>
+                    {% if user.is_superuser %}
+                        <a href="{% url 'invoice_delete' pk=invoice.pk %}"><img src="{% static 'del_icon.png' %}" alt="Delete" width="25" height="25"></a>
+                        <a href="{% url 'invoice_update' pk=invoice.pk %}"><img src="{% static 'edit_icon.png' %}" alt="Edit" width="25" height="25"></a>
+                    {% endif %}
+                </td>
+                
+                <td>{{ forloop.counter }}</td>
+                <td>{{ invoice.name }}</td>
+                <td>{{ invoice.invoiceno }}</td>
+                <td>{{ invoice.date }}</td>
+                <td>{{ invoice.customerph }}</td>
+                <td>{{ invoice.itemdescription }}</td>
+                <td>{{ invoice.quantity }}</td>
+                <td>{{ invoice.prices }}</td>
+                <td>{{ invoice.amount }}</td>
+                <td>{{ invoice.discount }}</td>
+                <td>{{ invoice.total }}</td>               
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+ 
+
+</div><br><br>
+
+{% endblock body_block %}
